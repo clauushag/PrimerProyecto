@@ -14,5 +14,4 @@ public class Pista{
 
     }
 
-    piblic int DisponibilidadTicks(int )
 }
