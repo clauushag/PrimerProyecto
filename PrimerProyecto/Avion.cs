@@ -1,4 +1,4 @@
-public abstract class Avion
+public abstract class Avion //Hola.
 {
     private string? ID;
     private enum Estado
