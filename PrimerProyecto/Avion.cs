@@ -1,26 +1,66 @@
-public class Avion
+using System.Runtime.CompilerServices;
+
+public abstract class Avion
 {
-    public string ID { get; set; }
-    public enum Estado
+    private string? ID;
+    public string GetId()
+    {
+        return ID;
+    }
+    public void SetId(string iD)
+    {
+        iD = ID;
+    }
+    private int Distancia;
+    public int GetDistancia()
+    {
+        return Distancia;
+    }
+    public void SetDistancia(int distancia)
+    {
+        distancia = Distancia;
+    }
+    private int Velocidad;
+    public int GetVelocidad()
+    {
+        return Velocidad;
+    }
+    public void SetVelocidad(int velocidad)
+    {
+        velocidad = Velocidad;
+    }
+    private double CapacidadCombustible;
+    public double GetCapacidadCombustible()
+    {
+        return CapacidadCombustible;
+    }
+    public void SetCapacidadCombustible(double capacidadCombustible)
+    {
+        capacidadCombustible = CapacidadCombustible;
+    }
+    private double CombustibleActual;
+    public double GetCombustibleActual()
+    {
+        return CombustibleActual;
+    }
+    public void SetCombustibleActual(double combustibleActual)
+    {
+        combustibleActual = CombustibleActual;
+    }
+    private enum Estado
     {
         EnVuelo,
         EnEspera,
         Aterrizando,
         EnTierra
     }
-    public int Distancia { get; set; } //en kilómetros.
-    public int Velocidad { get; set; } //en km/h.
-    public double CapacidadCombustible { get; set; } //en litros.
-    public double ConsumoCombustible { get; set; } //en litros/km.
-    public double CombustibleActual { get; set; } //en litros.
 
-    public Avion(string id, int dist, int vel, double capComb, double consComb, double combAct)
+    public Avion(string iD, int distancia, int velocidad, double capacidadCombustible, double combustibleActual)
     {
-        ID = id;
-        Distancia = dist;
-        Velocidad = vel;
-        CapacidadCombustible = capComb;
-        ConsumoCombustible = consComb;
-        CombustibleActual = combAct;
+        ID = iD;
+        Distancia = distancia;
+        Velocidad = velocidad;
+        CapacidadCombustible = capacidadCombustible;
+        CombustibleActual = combustibleActual;
     }
 }

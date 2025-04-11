@@ -1,8 +1,17 @@
 public class AvionPrivado : Avion
 {
-    public string Propietario { get; set; }
-    public AvionPrivado(string prop, string id, int dis, int vel, double capComb, double consComb, double combAct) : base(id, dis, vel, capComb, consComb, combAct)
+    private string? propietario;
+    public string GetPropietario()
     {
-        Propietario = prop;
+        return propietario;
+    }
+    public void SetPropietario(string propietario)
+    {
+        this.propietario = propietario;
+    }
+    public AvionPrivado(string iD, int distancia, int velocidad, double capacidadCombustible, double combustibleActual, string propietario)
+    : base(iD, distancia, velocidad, capacidadCombustible, combustibleActual)
+    {
+        this.propietario = propietario;
     }
 }
