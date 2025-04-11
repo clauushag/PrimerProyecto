@@ -15,7 +15,7 @@ public class Pista
         AvionActual = avionActual;
     }
 
-    public void SolicitarAterrizaje(Avion avion) //asigna un avión para aterrizar en esta pista.
+  public void SolicitarAterrizaje(Avion avion) //asigna un avión para aterrizar en esta pista.
     {
 
     }
