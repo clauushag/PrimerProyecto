@@ -1,52 +1,6 @@
-using System.Runtime.CompilerServices;
-
 public abstract class Avion
 {
     private string? ID;
-    public string GetId()
-    {
-        return ID;
-    }
-    public void SetId(string iD)
-    {
-        iD = ID;
-    }
-    private int Distancia;
-    public int GetDistancia()
-    {
-        return Distancia;
-    }
-    public void SetDistancia(int distancia)
-    {
-        distancia = Distancia;
-    }
-    private int Velocidad;
-    public int GetVelocidad()
-    {
-        return Velocidad;
-    }
-    public void SetVelocidad(int velocidad)
-    {
-        velocidad = Velocidad;
-    }
-    private double CapacidadCombustible;
-    public double GetCapacidadCombustible()
-    {
-        return CapacidadCombustible;
-    }
-    public void SetCapacidadCombustible(double capacidadCombustible)
-    {
-        capacidadCombustible = CapacidadCombustible;
-    }
-    private double CombustibleActual;
-    public double GetCombustibleActual()
-    {
-        return CombustibleActual;
-    }
-    public void SetCombustibleActual(double combustibleActual)
-    {
-        combustibleActual = CombustibleActual;
-    }
     private enum Estado
     {
         EnVuelo,
@@ -54,13 +8,69 @@ public abstract class Avion
         Aterrizando,
         EnTierra
     }
+    private int distancia;
+    private int velocidad;
+    private double capacidadCombustible;
+    private double consumoCombustible;
+    private double combustibleActual;
+    public string GetId()
+    {
+        return ID;
+    }
+    public void SetId(string iD)
+    {
+        ID = iD;
+    }
+
+    public int GetDistancia()
+    {
+        return distancia;
+    }
+    public void SetDistancia(int distancia)
+    {
+        this.distancia = distancia;
+    }
+
+    public int GetVelocidad()
+    {
+        return velocidad;
+    }
+    public void SetVelocidad(int velocidad)
+    {
+        this.velocidad = velocidad;
+    }
+
+    public double GetCapacidadCombustible()
+    {
+        return capacidadCombustible;
+    }
+    public void SetCapacidadCombustible(double capacidadCombustible)
+    {
+        this.capacidadCombustible = capacidadCombustible;
+    }
+    public double GetConsumoCombustible()
+    {
+        return capacidadCombustible;
+    }
+    public void SetConsumoCombustible(double consumoCombustible)
+    {
+        this.consumoCombustible = consumoCombustible;
+    }
+    public double GetCombustibleActual()
+    {
+        return combustibleActual;
+    }
+    public void SetCombustibleActual(double combustibleActual)
+    {
+        this.combustibleActual = combustibleActual;
+    }
 
     public Avion(string iD, int distancia, int velocidad, double capacidadCombustible, double combustibleActual)
     {
         ID = iD;
-        Distancia = distancia;
-        Velocidad = velocidad;
-        CapacidadCombustible = capacidadCombustible;
-        CombustibleActual = combustibleActual;
+        this.distancia = distancia;
+        this.velocidad = velocidad;
+        this.capacidadCombustible = capacidadCombustible;
+        this.combustibleActual = combustibleActual;
     }
 }
