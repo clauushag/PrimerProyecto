@@ -1,8 +1,7 @@
 public abstract class Avion
 {
     private string? ID;
-    public enum Estado
-    {
+    private enum Estado{
         EnVuelo,
         EnEspera,
         Aterrizando,
@@ -13,65 +12,54 @@ public abstract class Avion
     private double capacidadCombustible; //en litros
     private double consumoCombustible; //en litros/km
     private double combustibleActual; //en litros
-    public string GetId()
-    {
+  
+    public string GetId(){
         return ID;
     }
-    public void SetId(string iD)
-    {
+    public void SetId(string iD){
         ID = iD;
     }
 
-    public int GetDistancia()
-    {
+    public int GetDistancia(){
         return distancia;
     }
-    public void SetDistancia(int distancia)
-    {
+    public void SetDistancia(int distancia){
         this.distancia = distancia;
     }
 
-    public int GetVelocidad()
-    {
+    public int GetVelocidad(){
         return velocidad;
     }
-    public void SetVelocidad(int velocidad)
-    {
+    public void SetVelocidad(int velocidad){
         this.velocidad = velocidad;
     }
 
-    public double GetCapacidadCombustible()
-    {
+    public double GetCapacidadCombustible(){
         return capacidadCombustible;
     }
-    public void SetCapacidadCombustible(double capacidadCombustible)
-    {
+    public void SetCapacidadCombustible(double capacidadCombustible){
         this.capacidadCombustible = capacidadCombustible;
     }
-    public double GetConsumoCombustible()
-    {
+
+    public double GetConsumoCombustible(){
         return consumoCombustible;
     }
-    public void SetConsumoCombustible(double consumoCombustible)
-    {
+    public void SetConsumoCombustible(double consumoCombustible){
         this.consumoCombustible = consumoCombustible;
     }
-    public double GetCombustibleActual()
-    {
+    public double GetCombustibleActual(){
         return combustibleActual;
     }
-    public void SetCombustibleActual(double combustibleActual)
-    {
+    public void SetCombustibleActual(double combustibleActual){
         this.combustibleActual = combustibleActual;
     }
-
-    public Avion(string iD, int distancia, int velocidad, double capacidadCombustible, double consumoCombustible, double combustibleActual)
-    {
+    public Avion(string iD, int distancia, int velocidad, double capacidadCombustible, double combustibleActual, double consumoCombustible){
         ID = iD;
         this.distancia = distancia;
         this.velocidad = velocidad;
         this.capacidadCombustible = capacidadCombustible;
         this.consumoCombustible = consumoCombustible;
         this.combustibleActual = combustibleActual;
+        this.consumoCombustible = consumoCombustible;
     }
 }

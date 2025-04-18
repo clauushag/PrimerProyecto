@@ -9,8 +9,8 @@ public class AvionPrivado : Avion
     {
         this.propietario = propietario;
     }
-    public AvionPrivado(string iD, int distancia, int velocidad, double capacidadCombustible, double consComb, double combustibleActual, string propietario)
-    : base(iD, distancia, velocidad, capacidadCombustible, consComb, combustibleActual)
+    public AvionPrivado(string propietario, string iD, int distancia, int velocidad, double capacidadCombustible, double consumoCombustible, double combustibleActual)  
+    : base(iD, distancia, velocidad, capacidadCombustible, combustibleActual, consumoCombustible)
     {
         this.propietario = propietario;
     }
