@@ -47,7 +47,7 @@ public class Pista
     {
         estadoActual = Estado.Libre;
     }
-    private void Aterrizar()
+    private void Aterrizar() //DUDA
     {
         //IMPLEMENTAR EL CÓDIGO:
         //Tengo el avión asignado y pasan 3 ticks
