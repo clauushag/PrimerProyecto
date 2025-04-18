@@ -72,14 +72,15 @@ public abstract class Avion
     {
         this.combustibleActual = combustibleActual;
     }
-    public Avion(string iD, int distancia, int velocidad, double capacidadCombustible, double combustibleActual, double consumoCombustible)
+    public Avion(string iD, Estado estadoAvion, int distancia, int velocidad, double capacidadCombustible, double consumoCombustible)
     {
         ID = iD;
+        this.estadoAvion = estadoAvion;
         this.distancia = distancia;
         this.velocidad = velocidad;
         this.capacidadCombustible = capacidadCombustible;
         this.consumoCombustible = consumoCombustible;
-        this.combustibleActual = combustibleActual;
+        combustibleActual = capacidadCombustible; //Siempre está al máximo, y por tanto lo inicializo a la capacidadCombustible.
         this.consumoCombustible = consumoCombustible;
         estadoAvion = Estado.EnVuelo;
     }
