@@ -1,18 +1,18 @@
 public abstract class Avion
 {
     private string? ID;
-    private enum Estado
+    public enum Estado
     {
         EnVuelo,
         EnEspera,
         Aterrizando,
         EnTierra
     }
-    private int distancia;
-    private int velocidad;
-    private double capacidadCombustible;
-    private double consumoCombustible;
-    private double combustibleActual;
+    private int distancia; //en kilómetros
+    private int velocidad; //en km/h
+    private double capacidadCombustible; //en litros
+    private double consumoCombustible; //en litros/km
+    private double combustibleActual; //en litros
     public string GetId()
     {
         return ID;
@@ -50,7 +50,7 @@ public abstract class Avion
     }
     public double GetConsumoCombustible()
     {
-        return capacidadCombustible;
+        return consumoCombustible;
     }
     public void SetConsumoCombustible(double consumoCombustible)
     {
@@ -65,12 +65,13 @@ public abstract class Avion
         this.combustibleActual = combustibleActual;
     }
 
-    public Avion(string iD, int distancia, int velocidad, double capacidadCombustible, double combustibleActual)
+    public Avion(string iD, int distancia, int velocidad, double capacidadCombustible, double consumoCombustible, double combustibleActual)
     {
         ID = iD;
         this.distancia = distancia;
         this.velocidad = velocidad;
         this.capacidadCombustible = capacidadCombustible;
+        this.consumoCombustible = consumoCombustible;
         this.combustibleActual = combustibleActual;
     }
 }

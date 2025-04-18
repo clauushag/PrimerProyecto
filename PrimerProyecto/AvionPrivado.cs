@@ -1,6 +1,6 @@
 public class AvionPrivado : Avion
 {
-    private string? propietario;
+    private string propietario;
     public string GetPropietario()
     {
         return propietario;
@@ -9,8 +9,8 @@ public class AvionPrivado : Avion
     {
         this.propietario = propietario;
     }
-    public AvionPrivado(string iD, int distancia, int velocidad, double capacidadCombustible, double combustibleActual, string propietario)
-    : base(iD, distancia, velocidad, capacidadCombustible, combustibleActual)
+    public AvionPrivado(string iD, int distancia, int velocidad, double capacidadCombustible, double consComb, double combustibleActual, string propietario)
+    : base(iD, distancia, velocidad, capacidadCombustible, consComb, combustibleActual)
     {
         this.propietario = propietario;
     }

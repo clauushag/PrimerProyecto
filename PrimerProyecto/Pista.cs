@@ -1,27 +1,55 @@
 public class Pista
 {
-    public string ID { get; set; }
+    private string ID;
     public enum Estado
     {
         Libre,
         Ocupada
     }
-    public Avion AvionActual { get; set; }
-    const int DisponibilidadTicks = 3;
-
-    public Pista(string id, Avion avionActual)
+    private Estado estadoActual = Estado.Libre;
+    public Avion avionActual;//avión asignado actualmente a la pista
+    private const int DISPONIBILIDADTICKS = 3;
+    public string GetId()
     {
-        ID = id;
-        AvionActual = avionActual;
+        return ID;
     }
 
-  public void SolicitarAterrizaje(Avion avion) //asigna un avión para aterrizar en esta pista.
+    public Avion GetAvion()
     {
-
+        return avionActual;
     }
 
-    public void LiberarPista() //libera la pista una vez que el avión ha aterrizado y la ha despejado.
+    public Estado GetEstadoActual()
     {
+        return estadoActual;
+    }
 
+    public Pista(string id)
+    {
+        ID = id; //No inicializamos el avión, ya que cuando me creo una pista, no me creo un avión. Solo nos interesa el ID.
+    }
+    //SOLICITARATERRIZAJE: comprueba que la pista esté libre, si lo está asigna el avión y lo aterriza. Si no está libre, WARNING.
+    public void SolicitarAterrizaje(Avion avion) //asigna un avión para aterrizar en esta pista.
+    {
+        if (estadoActual == Estado.Libre)
+        {
+            avionActual = avion;
+            Aterrizar();
+        }
+        else
+        {
+            Console.WriteLine("PISTA OCUPADA!!! No puede aterrizar.");
+        }
+    }
+
+    private void LiberarPista() //libera la pista una vez que el avión ha aterrizado y la ha despejado.
+    {
+        estadoActual = Estado.Libre;
+    }
+    private void Aterrizar()
+    {
+        //IMPLEMENTAR EL CÓDIGO:
+        //Tengo el avión asignado y pasan 3 ticks
+        LiberarPista();
     }
 }

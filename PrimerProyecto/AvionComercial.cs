@@ -1,18 +1,18 @@
 
 public class AvionComercial : Avion
 {
-    private int NumPasajeros;
+    private int numPasajeros;
     public int GetPasajerosMaximos()
     {
-        return NumPasajeros;
+        return numPasajeros;
     }
     public void SetPasajerosMaximos(int pasajerosMaximos)
     {
-        pasajerosMaximos = NumPasajeros;
+        this.numPasajeros = pasajerosMaximos;
     }
-    public AvionComercial(int numpas, string id, int dis, int vel, double capComb, double combAct, int numPas)
-    : base(id, dis, vel, capComb, combAct)
+    public AvionComercial(int numpas, string id, int dis, int vel, double capComb, double consumoComb, double combAct, int numPas)
+    : base(id, dis, vel, capComb, consumoComb, combAct)
     {
-        NumPasajeros = numPas;
+        numPasajeros = numPas;
     }
 }
