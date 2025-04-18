@@ -34,6 +34,7 @@ public class Pista
         if (estadoActual == Estado.Libre)
         {
             avionActual = avion;
+            estadoActual = Estado.Ocupada;
             Aterrizar();
         }
         else
