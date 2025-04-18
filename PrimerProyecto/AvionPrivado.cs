@@ -1,6 +1,6 @@
 public class AvionPrivado : Avion
 {
-    private string? propietario;
+    private string propietario;
     public string GetPropietario()
     {
         return propietario;

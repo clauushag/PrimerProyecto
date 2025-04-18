@@ -7,11 +7,12 @@ public abstract class Avion
         Aterrizando,
         EnTierra
     }
-    private int distancia;
-    private int velocidad;
-    private double capacidadCombustible;
-    private double consumoCombustible;
-    private double combustibleActual;
+    private int distancia; //en kilómetros
+    private int velocidad; //en km/h
+    private double capacidadCombustible; //en litros
+    private double consumoCombustible; //en litros/km
+    private double combustibleActual; //en litros
+  
     public string GetId(){
         return ID;
     }
@@ -39,6 +40,7 @@ public abstract class Avion
     public void SetCapacidadCombustible(double capacidadCombustible){
         this.capacidadCombustible = capacidadCombustible;
     }
+
     public double GetConsumoCombustible(){
         return consumoCombustible;
     }
@@ -51,12 +53,12 @@ public abstract class Avion
     public void SetCombustibleActual(double combustibleActual){
         this.combustibleActual = combustibleActual;
     }
-
     public Avion(string iD, int distancia, int velocidad, double capacidadCombustible, double combustibleActual, double consumoCombustible){
         ID = iD;
         this.distancia = distancia;
         this.velocidad = velocidad;
         this.capacidadCombustible = capacidadCombustible;
+        this.consumoCombustible = consumoCombustible;
         this.combustibleActual = combustibleActual;
         this.consumoCombustible = consumoCombustible;
     }
