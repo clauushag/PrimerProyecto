@@ -6,9 +6,16 @@ public class Aeropuerto
     public Pista[,] arrayPistas; //representa las pistas disponibles
     public List<Avion> listaAviones = new List<Avion>();
 
-    public Aeropuerto(Pista[] pistas)
+    public Aeropuerto(int filas, int columnas)
     {
-        arrayPistas = pistas;
+        arrayPistas = new Pista[filas, columnas]; //inicializo el array de pistas con el número de filas y columnas que me pasan por parámetro.
+        for (int i = 0; i < filas; i++)
+        {
+            for (int j = 0; j < columnas; j++)
+            {
+                arrayPistas = new Pista[filas, columnas]; //se inicializa el array de pistas con las filas y las columnas que pasan al constructor.
+            }
+        }
     }
 
     public void AvanzarTick()
@@ -117,6 +124,8 @@ public class Aeropuerto
                 int numPasajeros = Console.ReadLine();
                 break;
             case 2:
+                Console.WriteLine("Introduzca la carga máxima del avión: ");
+                double cargaMaxima = Console.ReadLine();
                 break;
             case 3:
                 break;
