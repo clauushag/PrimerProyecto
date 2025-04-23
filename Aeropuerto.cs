@@ -11,9 +11,9 @@ public class Aeropuerto
         arrayPistas = pistas;
     }
 
-    public void AvanzarSimulacion()
+    public void AvanzarTick()
     {
-        foreach (Avion a in listaAviones) //avanzo simulación para aviones.
+        foreach (Avion a in listaAviones) //avanzo simulación para aviones con el método de encapsulación.
         {
             a.SimularAvion();
         }
@@ -27,17 +27,18 @@ public class Aeropuerto
         }
     }
     public void MostrarEstado()
-    /*muestra el estado actual de todas las pistas y aviones. 
-    Para cada pista, muestra su ID y si está libre u ocupada. 
-    Si está ocupada, muestra el ID de la aeronave y los ticks restantes hasta que quede libre.*/
     {
         Console.WriteLine("Estado actual de todas las pistas y aviones:");
-        foreach (Pista p in arrayPistas)
+        for (int i = 0; i < arrayPistas.GetLength(0); i++) //recorro las filas.
         {
-            Console.WriteLine($" La pista con id: {p.GetId()} está {p.GetEstadoActual()}");
-            if (p.GetEstadoActual() == Pista.Estado.Ocupada)
+            for (int j = 0; j < arrayPistas.GetLength(1); j++) //recorro las columnas.
             {
-                Console.WriteLine($"El id del avión es: {p.GetAvion().GetId()}");
+                Console.WriteLine($" La pista con id: {arrayPistas[i, j].GetId()} está {arrayPistas[i, j].GetEstadoActual()}"); // Para cada pista, muestra su ID y si está libre u ocupada.
+                if (arrayPistas[i, j].GetEstadoActual() == Pista.Estado.Ocupada)
+                {
+                    Console.WriteLine($"El id del avión es: {arrayPistas[i, j].GetAvion().GetId()}");
+                    Console.WriteLine($"Quedan {arrayPistas[i, j].GetContador()} ticks restantes."); //Si está ocupada, muestra el ID de la aeronave y los ticks restantes hasta que quede libre.
+                }
             }
         }
     }
