@@ -36,7 +36,6 @@ public class Pista
         if (estadoActual == Estado.Libre)
         {
             avionActual = avion;
-            estadoActual = Estado.Ocupada;
             Aterrizar();
             Console.WriteLine($"El avion {avion} ha aterrizado en la pista {ID}.");
         }
