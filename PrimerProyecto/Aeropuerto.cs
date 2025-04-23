@@ -88,48 +88,48 @@ public class Aeropuerto
 
         switch(input){
             case 1:
-            Console.Write("Escriba el Id del avion.");
+            Console.Write("Escriba el Id del avion: ");
             string? idCarga = Console.ReadLine();
-            Console.Write("Escriba la velocidad del avion.");
+            Console.Write("Escriba la velocidad del avion: ");
             int velocidadCarga = int.Parse(Console.ReadLine());
-            Console.Write("Escriba la capacidad de combustible del avion.");
+            Console.Write("Escriba la capacidad de combustible del avion: ");
             double capacidadCombustibleCarga = double.Parse(Console.ReadLine());
-            Console.Write("Escriba el consumo de combustible del avion.");
+            Console.Write("Escriba el consumo de combustible del avion: ");
             double consumoCombustibleCarga = double.Parse(Console.ReadLine());
-            Console.Write("Escriba la carga maxima del avion.");
+            Console.Write("Escriba la carga maxima del avion: ");
             double cargaMaxima = double.Parse(Console.ReadLine());
             //no se que poner en distancia.
             return new AvionCarga(idCarga, Avion.Estado.EnTierra, 0, velocidadCarga, capacidadCombustibleCarga, consumoCombustibleCarga, cargaMaxima);
              
             case 2:
-            Console.Write("Escriba el Id del avion.");
+            Console.Write("Escriba el Id del avion: ");
             string? idCoercial = Console.ReadLine();
-            Console.Write("Escriba la velocidad del avion.");
+            Console.Write("Escriba la velocidad del avion: ");
             int velocidadComercial = int.Parse(Console.ReadLine());
-            Console.Write("Escriba la capacidad de combustible del avion.");
+            Console.Write("Escriba la capacidad de combustible del avion: ");
             double capacidadCombustibleComercial = double.Parse(Console.ReadLine());
-            Console.Write("Escriba el consumo de combustible del avion.");
+            Console.Write("Escriba el consumo de combustible del avion: "); 
             double consumoCombustibleComercial = double.Parse(Console.ReadLine());
-            Console.Write("Escriba el numero de pasajeros del avion.");
+            Console.Write("Escriba el numero de pasajeros del avion: ");
             int numPasajeros = int.Parse(Console.ReadLine());
 
             return new AvionComercial(idCoercial, Avion.Estado.EnTierra, 0, velocidadComercial, capacidadCombustibleComercial, consumoCombustibleComercial, numPasajeros);
             
             case 3:
-            Console.Write("Escriba el Id del avion.");
+            Console.Write("Escriba el Id del avion: ");
             string? idPrivado = Console.ReadLine();
-            Console.Write("Escriba la velocidad del avion.");
+            Console.Write("Escriba la velocidad del avion: ");
             int velocidadPrivado = int.Parse(Console.ReadLine());
-            Console.Write("Escriba la capacidad de combustible del avion.");
+            Console.Write("Escriba la capacidad de combustible del avion: ");
             double capacidadCombustiblePrivado = double.Parse(Console.ReadLine());
-            Console.Write("Escriba el consumo de combustible del avion.");
+            Console.Write("Escriba el consumo de combustible del avion: ");
             double consumoCombustiblePrivado = double.Parse(Console.ReadLine());
-            Console.Write("Escriba el nombre del propietario del avion.");
+            Console.Write("Escriba el nombre del propietario del avion: ");
             string? propietario = Console.ReadLine();
             return new AvionPrivado(idPrivado, Avion.Estado.EnTierra, 0, velocidadPrivado, capacidadCombustiblePrivado, consumoCombustiblePrivado, propietario);
 
             default:
-            Console.WriteLine("No se puede crear el avion debido a que no ha elegido ninguna de las opciones.");
+            Console.WriteLine("No se puede crear el avion debido a que no ha elegido ninguna de las opciones correctas.");
             return null;
             
         }
