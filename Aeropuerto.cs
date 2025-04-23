@@ -3,7 +3,7 @@ using System.Data.Common;
 
 public class Aeropuerto
 {
-    public Pista[] arrayPistas; //representa las pistas disponibles
+    public Pista[,] arrayPistas; //representa las pistas disponibles
     public List<Avion> listaAviones = new List<Avion>();
 
     public Aeropuerto(Pista[] pistas)
