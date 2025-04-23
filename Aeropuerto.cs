@@ -11,6 +11,21 @@ public class Aeropuerto
         arrayPistas = pistas;
     }
 
+    public void AvanzarSimulacion()
+    {
+        foreach (Avion a in listaAviones) //avanzo simulación para aviones.
+        {
+            a.SimularAvion();
+        }
+
+        for (int i = 0; i < arrayPistas.GetLength(0); i++) //recorro las filas.
+        {
+            for (int j = 0; j < arrayPistas.GetLength(1); j++) //recorro las columnas.
+            {
+                arrayPistas[i, j].SimularTick();
+            }
+        }
+    }
     public void MostrarEstado()
     /*muestra el estado actual de todas las pistas y aviones. 
     Para cada pista, muestra su ID y si está libre u ocupada. 
