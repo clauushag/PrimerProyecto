@@ -43,19 +43,17 @@ public class Aeropuerto
         }
     }
 
-    public void CargarAvionesDesdeArchivo(string ruta)
-    //carga los datos de los aviones desde una ruta de archivo especificada
+    public void CargarAvionesDesdeArchivo(string ruta) //carga los datos de los aviones desde una ruta de archivo especificada
     {
-
         using (StreamReader sr = File.OpenText(ruta))
         {
             string linea = "";
             while ((linea = sr.ReadLine()) != null)
             {
-                char caracter = ',';
+                char caracter = ','; //lo separo por comas porque en csv el carácter separador es la coma.
                 string[] atributo = linea.Split(caracter);
 
-                //Creo los aviones con los datos que he adquirido desde el archivo y me creo los aviones añadiendolos a la lista.
+                //Creo los aviones con los datos que he adquirido desde el archivo añadiendolos a la lista.
                 switch (atributo[4])
                 {
                     case "Comercial":
@@ -84,5 +82,45 @@ public class Aeropuerto
             default:
                 return Avion.Estado.EnTierra; //Por defecto que el avión esté en tierra, así está más seguro.
         }
+    }
+
+    public void AddAvion()
+    {
+        Console.WriteLine("Introduzca el ID del avión: ");
+        string id = Console.ReadLine();
+
+        Console.WriteLine("Introduzca la distancia a la que se encuentra el avión: ");
+        int distancia = Console.ReadLine();
+
+        Console.WriteLine("Introduzca la velocidad del avión: ");
+        int velocidad = Console.ReadLine();
+
+        Console.WriteLine("Introduzca la capacidad de combustible del avión: ");
+        double capacidadCombustible = Console.ReadLine();
+
+        Console.WriteLine("Introduzca el consumo de combustible del avión: ");
+        double consumoCombustible = Console.ReadLine();
+
+        Console.WriteLine("Introduzca el combustible actual del avión: ");
+        double combustibleActual = Console.ReadLine();
+
+        Console.WriteLine("Introduzca el número de avión que desee: ");
+        Console.WriteLine("1. Avión Comercial.");
+        Console.WriteLine("2. Avión de Carga.");
+        Console.WriteLine("3. Avión Privado.");
+        string opcion = Console.ReadLine();
+
+        switch (opcion)
+        {
+            case 1:
+                Console.WriteLine("Introduzca el número de pasajeros: ");
+                int numPasajeros = Console.ReadLine();
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
+
     }
 }
