@@ -6,15 +6,21 @@ public class Aeropuerto
     public Pista[,] arrayPistas; //representa las pistas disponibles
     public List<Avion> listaAviones = new List<Avion>();
 
-    public Aeropuerto(Pista[,] pistas)
+    public Aeropuerto(int filas, int columnas)
     {
-        arrayPistas = pistas;
+        arrayPistas = new Pista[filas, columnas]; //inicializo el array de pistas con el número de filas y columnas que me pasan por parámetro.
+        for(int i = 0; i < filas; i++) {
+            for(int j = 0; j < columnas; j++) {
+                arrayPistas = new Pista[filas,columnas]; //se inicializa el array de pistas con las filas y las columnas que pasan al constructor.
+            }
+        } 
     }
 
     public void MostrarEstado()
-    /*muestra el estado actual de todas las pistas y aviones. 
-    Para cada pista, muestra su ID y si está libre u ocupada. 
-    Si está ocupada, muestra el ID de la aeronave y los ticks restantes hasta que quede libre.*/
+    //hay que cambiarlo para que muestre las pistas en 2D.
+    //muestra el estado actual de todas las pistas y aviones. 
+    //Para cada pista, muestra su ID y si está libre u ocupada. 
+    //Si está ocupada, muestra el ID de la aeronave y los ticks restantes hasta que quede libre.
     {
         Console.WriteLine("Estado actual de todas las pistas y aviones:");
         foreach (Pista p in arrayPistas)
