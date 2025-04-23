@@ -27,6 +27,11 @@ public class Pista
         return estadoActual;
     }
 
+    public int GetContador()
+    {
+        return contador;
+    }
+
     public Pista(string id)
     {
         ID = id; //No inicializamos el avión, ya que cuando me creo una pista, no me creo un avión. Solo nos interesa el ID.
