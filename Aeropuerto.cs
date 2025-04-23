@@ -122,12 +122,17 @@ public class Aeropuerto
             case 1:
                 Console.WriteLine("Introduzca el número de pasajeros: ");
                 int numPasajeros = Console.ReadLine();
+                listaAviones.Add(new AvionComercial(id, distancia, velocidad, capacidadCombustible, consumoCombustible, combustibleActual, numPasajeros));
                 break;
             case 2:
                 Console.WriteLine("Introduzca la carga máxima del avión: ");
                 double cargaMaxima = Console.ReadLine();
+                listaAviones.Add(new AvionCarga(id, distancia, velocidad, capacidadCombustible, consumoCombustible, combustibleActual, numPasajeros));
                 break;
             case 3:
+                Console.WriteLine("Introduzca el nombre del propietario del avión: ");
+                string propietario = Console.ReadLine();
+                listaAviones.Add(new AvionPrivado(id, distancia, velocidad, capacidadCombustible, consumoCombustible, combustibleActual, numPasajeros));
                 break;
         }
 
