@@ -2,7 +2,7 @@ public class Program
 {
 
     public static void Main(string[] args){
-
+        //falta implementar el bucle para que no finalize.
         Aeropuerto aeropuerto = new Aeropuerto(3,3);
         Console.WriteLine("Choose an option:");
         Console.WriteLine();
@@ -32,6 +32,7 @@ public class Program
             break;
                 
             case 3:
+
             break;
 
             case 4:
