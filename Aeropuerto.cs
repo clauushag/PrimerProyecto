@@ -122,6 +122,7 @@ public class Aeropuerto
             case 1:
                 Console.WriteLine("Introduzca el número de pasajeros: ");
                 int numPasajeros = Console.ReadLine();
+                listaAviones.Add(new AvionComercial());
                 break;
             case 2:
                 Console.WriteLine("Introduzca la carga máxima del avión: ");
