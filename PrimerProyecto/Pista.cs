@@ -43,7 +43,10 @@ public class Pista
         if (estadoActual == Estado.Libre)
         {
             avionActual = avion;
+<<<<<<< HEAD:PrimerProyecto/Pista.cs
+=======
             estadoActual = Estado.Ocupada; //está ocupada por el avión que entra, no por el que se va.
+>>>>>>> 7ad796d1d46d7245be70813339563d53aee4767d:Pista.cs
             Aterrizar();
             Console.WriteLine($"El avion {avion} ha aterrizado en la pista {ID}.");
         }
@@ -57,6 +60,12 @@ public class Pista
     }
     private void Aterrizar() //Cuando se llama al método aterrizar, tiene que llegar el contador a 0 (pasan los 3 ticks) hasta que se pueda volver a aterrizar.
     {
+<<<<<<< HEAD:PrimerProyecto/Pista.cs
+        if(estadoActual == Estado.Libre) estadoActual = Estado.Ocupada;
+        else Console.WriteLine($"La pista {ID} esta ocupada");
+        //Tengo el avión asignado y pasan 3 ticks
+        LiberarPista();
+=======
         if (contador == 0)
         {
             LiberarPista();
@@ -70,5 +79,6 @@ public class Pista
             contador--;
             Aterrizar();
         }
+>>>>>>> 7ad796d1d46d7245be70813339563d53aee4767d:Pista.cs
     }
 }
