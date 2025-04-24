@@ -6,14 +6,15 @@ public class Program
         Aeropuerto aeropuerto = new Aeropuerto(3,3);
         Console.WriteLine("Choose an option:");
         Console.WriteLine();
+        Console.WriteLine("_________________________________________________________________");
         Console.WriteLine("1. Load flights from file");
         Console.WriteLine("2. Load flight manually");
         Console.WriteLine("3. start a simulation (Manual)");
         Console.WriteLine("4. start a simulation (Automatic)");
         Console.WriteLine("5. Exit");
+        Console.WriteLine("_________________________________________________________________");
         Console.WriteLine();
-        Console.WriteLine();
-        Console.WriteLine("Choose your option:");
+        Console.Write("Choose your option:");
         int input = int.Parse(Console.ReadLine());
 
         switch (input) {
@@ -34,9 +35,8 @@ public class Program
             break;
 
             case 4:
-            break;
-
-            case 5:
+            Console.WriteLine("Saliendo... (presione una tecla para finalizar.)");
+            Console.ReadKey();
             break;
 
             default:
