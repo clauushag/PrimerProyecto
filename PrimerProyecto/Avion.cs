@@ -84,4 +84,28 @@ public abstract class Avion
         this.consumoCombustible = consumoCombustible;
         estadoAvion = Estado.EnVuelo;
     }
+
+    public void SimularAvion()
+    {
+        int distanciaRecorrida;
+        if (distancia != 0)
+        {
+            distanciaRecorrida = velocidad * 60 / 4; //distancia recorrida en un cuarto de hora(1 tick).
+            if (distancia < distanciaRecorrida)
+            {
+                distanciaRecorrida = distancia; //para evitar pasarnos de largo, comprobamos cuando la distancia recorrida va a ser mayor que la distancia.
+                                                //cuando eso sucede la distancia recorrida es la distancia.
+            }
+            distancia -= distanciaRecorrida; //actualizamos el valor distancia en función de lo que ya hemos recorrdido.
+        }
+
+        if (combustibleActual != 0)
+        {
+            combustibleActual -= consumoCombustible * distanciaRecorrida; //reduzco el combustible a medida que avanza el avión.
+        }
+        if (combustibleActual == 0) //Complicado el asunto si se queda sin combustible el avión. 
+        {
+            throw new Exception("Complicado.");
+        }
+    }
 }
