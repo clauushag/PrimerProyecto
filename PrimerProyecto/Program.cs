@@ -27,6 +27,7 @@ public class Program
                 break;
 
             case 2:
+                aeropuerto.AddAvion();   
             break;
                 
             case 3:

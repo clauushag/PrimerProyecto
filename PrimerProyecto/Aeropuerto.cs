@@ -92,24 +92,28 @@ public class Aeropuerto
         double capacidadCombustible = double.Parse(Console.ReadLine());
         Console.Write("Escriba el consumo de combustible del avion: ");
         double consumoCombustible = double.Parse(Console.ReadLine());
+        Console.WriteLine("Escriba la distancia que recorrerá el avión: ");
+        int distancia = int.Parse(Console.ReadLine());
 
         switch(input){
             case 1:
             Console.Write("Escriba la carga maxima del avion: ");
             double cargaMaxima = double.Parse(Console.ReadLine());
-            //no se que poner en distancia.
-            return new AvionCarga (id, Avion.Estado.EnTierra, 0, velocidad, capacidadCombustible, consumoCombustible, cargaMaxima);
+            listaAviones.Add(new AvionCarga(id, Avion.Estado.EnVuelo, distancia, velocidad, capacidadCombustible, consumoCombustible, cargaMaxima));
+            return new AvionCarga (id, Avion.Estado.EnVuelo, distancia, velocidad, capacidadCombustible, consumoCombustible, cargaMaxima);
              
             case 2:
             Console.Write("Escriba el numero de pasajeros del avion: ");
             int numPasajeros = int.Parse(Console.ReadLine());
-
-            return new AvionComercial(id, Avion.Estado.EnTierra, 0, velocidad, capacidadCombustible, consumoCombustible, numPasajeros);
+            listaAviones.Add(new AvionComercial(id, Avion.Estado.EnVuelo, distancia, velocidad, capacidadCombustible, consumoCombustible, numPasajeros));
+            return new AvionComercial(id, Avion.Estado.EnVuelo, distancia, velocidad, capacidadCombustible, consumoCombustible, numPasajeros);
+            
             
             case 3:
             Console.Write("Escriba el nombre del propietario del avion: ");
             string? propietario = Console.ReadLine();
-            return new AvionPrivado(id, Avion.Estado.EnTierra, 0, velocidad, capacidadCombustible, consumoCombustible, propietario);
+            listaAviones.Add(new AvionPrivado(id, Avion.Estado.EnVuelo, distancia, velocidad, capacidadCombustible, consumoCombustible, propietario));
+            return new AvionPrivado(id, Avion.Estado.EnVuelo, distancia, velocidad, capacidadCombustible, consumoCombustible, propietario);
 
             default:
             Console.WriteLine("No se puede crear el avion debido a que no ha elegido ninguna de las opciones correctas.");
