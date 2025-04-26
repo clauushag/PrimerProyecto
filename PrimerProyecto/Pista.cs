@@ -53,7 +53,10 @@ public class Pista
     private void LiberarPista() //libera la pista una vez que el avión ha aterrizado y la ha despejado.
     {
         estadoActual = Estado.Libre;
+        avionActual.SetEstadoAvion(Avion.Estado.EnTierra); //según el funcionamiento del programa, para poder eliminar
+                                                           // el avión cuando queramos liberar la piesta, este debe estar en tierra.
         avionActual = null; //Elimina el avión.
+        contador = DISPONIBILIDADTICKS;//reinicio el contador cuando queda libre
     }
     private void Aterrizar() //Cuando se llama al método aterrizar, tiene que llegar el contador a 0 (pasan los 3 ticks) hasta que se pueda volver a aterrizar.
     {

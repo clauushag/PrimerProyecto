@@ -19,6 +19,10 @@ public abstract class Avion
     {
         return estadoAvion;
     }
+    public void SetEstadoAvion(Estado nuevoEstado)
+    {
+        this.estadoAvion = nuevoEstado;
+    }
 
     public string GetId()
     {
@@ -87,7 +91,7 @@ public abstract class Avion
 
     public void SimularAvion()
     {
-        int distanciaRecorrida;
+        int distanciaRecorrida = 0;
         if (distancia != 0)
         {
             distanciaRecorrida = velocidad * 60 / 4; //distancia recorrida en un cuarto de hora(1 tick).

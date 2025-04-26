@@ -52,30 +52,44 @@ public class Aeropuerto
 
     public void CargarAvionesDesdeArchivo(string ruta) //carga los datos de los aviones desde una ruta de archivo especificada
     {
-        using (StreamReader sr = File.OpenText(ruta))
+        try
         {
-            string linea = "";
-            while ((linea = sr.ReadLine()) != null)
+            using (StreamReader sr = File.OpenText(ruta))
             {
-                char caracter = ','; //lo separo por comas porque en csv el carácter separador es la coma.
-                string[] atributo = linea.Split(caracter);
-
-                //Creo los aviones con los datos que he adquirido desde el archivo añadiendolos a la lista.
-                switch (atributo[4])
+                string linea = "";
+                while ((linea = sr.ReadLine()) != null)
                 {
-                    case "Comercial":
-                        listaAviones.Add(new AvionComercial(atributo[0], DevolverEstado(atributo[1]), int.Parse(atributo[2]), int.Parse(atributo[3]), double.Parse(atributo[5]), double.Parse(atributo[6]), int.Parse(atributo[7])));
-                        break;
-                    case "Carga":
-                        listaAviones.Add(new AvionCarga(atributo[0], DevolverEstado(atributo[1]), int.Parse(atributo[2]), int.Parse(atributo[3]), double.Parse(atributo[5]), double.Parse(atributo[6]), double.Parse(atributo[7])));
-                        break;
-                    case "Privado":
-                        listaAviones.Add(new AvionPrivado(atributo[0], DevolverEstado(atributo[1]), int.Parse(atributo[2]), int.Parse(atributo[3]), double.Parse(atributo[5]), double.Parse(atributo[6]), atributo[7]));
-                        break;
+                    char caracter = ','; //lo separo por comas porque en csv el carácter separador es la coma.
+                    string[] atributo = linea.Split(caracter);
+
+                    //Creo los aviones con los datos que he adquirido desde el archivo añadiendolos a la lista.
+                    switch (atributo[4])
+                    {
+                        case "Comercial":
+                            listaAviones.Add(new AvionComercial(atributo[0], DevolverEstado(atributo[1]), int.Parse(atributo[2]), int.Parse(atributo[3]), double.Parse(atributo[5]), double.Parse(atributo[6]), int.Parse(atributo[7])));
+                            break;
+                        case "Carga":
+                            listaAviones.Add(new AvionCarga(atributo[0], DevolverEstado(atributo[1]), int.Parse(atributo[2]), int.Parse(atributo[3]), double.Parse(atributo[5]), double.Parse(atributo[6]), double.Parse(atributo[7])));
+                            break;
+                        case "Privado":
+                            listaAviones.Add(new AvionPrivado(atributo[0], DevolverEstado(atributo[1]), int.Parse(atributo[2]), int.Parse(atributo[3]), double.Parse(atributo[5]), double.Parse(atributo[6]), atributo[7]));
+                            break;
+                    }
                 }
             }
         }
-
+        catch (DirectoryNotFoundException e)
+        {//el directorio no existe
+            Console.WriteLine($"El Directorio no Existe {ruta}");
+        }
+        catch (FileNotFoundException e)
+        {//archivo no encontrado
+            Console.WriteLine($"No se pudo encontrar el archivo {ruta}");
+        }
+        catch (Exception e)
+        {//excepciones no contempladas
+            Console.WriteLine($"Error no contemplado {e.Message}");
+        }
     }
 
     private Avion.Estado DevolverEstado(string estado)
@@ -91,12 +105,12 @@ public class Aeropuerto
         }
     }
 
-    public Avion AddAvion()
+    public void AddAvion()
     {
         Console.WriteLine("Escoja el avion que desea crear.");
-        Console.WriteLine("1. Aavion de Carga.");
-        Console.WriteLine("2. Aavion Comercial.");
-        Console.WriteLine("3. Aavion privado.");
+        Console.WriteLine("1. Avion de Carga.");
+        Console.WriteLine("2. Avion Comercial.");
+        Console.WriteLine("3. Avion privado.");
 
         int input = int.Parse(Console.ReadLine());
 
@@ -110,32 +124,41 @@ public class Aeropuerto
         double consumoCombustible = double.Parse(Console.ReadLine());
         Console.WriteLine("Escriba la distancia que recorrerá el avión: ");
         int distancia = int.Parse(Console.ReadLine());
-
-        switch (input)
+        try
         {
-            case 1:
-                Console.Write("Escriba la carga maxima del avion: ");
-                double cargaMaxima = double.Parse(Console.ReadLine());
-                listaAviones.Add(new AvionCarga(id, Avion.Estado.EnVuelo, distancia, velocidad, capacidadCombustible, consumoCombustible, cargaMaxima));
-                return new AvionCarga(id, Avion.Estado.EnVuelo, distancia, velocidad, capacidadCombustible, consumoCombustible, cargaMaxima);
+            switch (input)
+            {
+                case 1:
+                    Console.Write("Escriba la carga maxima del avion: ");
+                    double cargaMaxima = double.Parse(Console.ReadLine());
+                    listaAviones.Add(new AvionCarga(id, Avion.Estado.EnVuelo, distancia, velocidad, capacidadCombustible, consumoCombustible, cargaMaxima));
+                    break;
+                case 2:
+                    Console.Write("Escriba el numero de pasajeros del avion: ");
+                    int numPasajeros = int.Parse(Console.ReadLine());
+                    listaAviones.Add(new AvionComercial(id, Avion.Estado.EnVuelo, distancia, velocidad, capacidadCombustible, consumoCombustible, numPasajeros));
+                    break;
 
-            case 2:
-                Console.Write("Escriba el numero de pasajeros del avion: ");
-                int numPasajeros = int.Parse(Console.ReadLine());
-                listaAviones.Add(new AvionComercial(id, Avion.Estado.EnVuelo, distancia, velocidad, capacidadCombustible, consumoCombustible, numPasajeros));
-                return new AvionComercial(id, Avion.Estado.EnVuelo, distancia, velocidad, capacidadCombustible, consumoCombustible, numPasajeros);
-
-
-            case 3:
-                Console.Write("Escriba el nombre del propietario del avion: ");
-                string? propietario = Console.ReadLine();
-                listaAviones.Add(new AvionPrivado(id, Avion.Estado.EnVuelo, distancia, velocidad, capacidadCombustible, consumoCombustible, propietario));
-                return new AvionPrivado(id, Avion.Estado.EnVuelo, distancia, velocidad, capacidadCombustible, consumoCombustible, propietario);
-
-            default:
-                Console.WriteLine("No se puede crear el avion debido a que no ha elegido ninguna de las opciones correctas.");
-                return null;
-
+                case 3:
+                    Console.Write("Escriba el nombre del propietario del avion: ");
+                    string? propietario = Console.ReadLine();
+                    listaAviones.Add(new AvionPrivado(id, Avion.Estado.EnVuelo, distancia, velocidad, capacidadCombustible, consumoCombustible, propietario));
+                    break;
+                default:
+                    throw new ArgumentException($"No se puede crear un avión distinto a Comercial, Privado o de Carga");
+            }
+        }
+        catch (ArgumentException e) //gestiono la excepcion que he lanzado en el default.
+        {
+            Console.WriteLine($"{e.Message}");
+        }
+        catch (FormatException e) //gestiono las excepciones que puedan ocurrir en las conversiones de string a int y double
+        {
+            Console.WriteLine($"No introduzcas texto cuando se pidan cantidades{e.Message}");
+        }
+        catch (Exception e)
+        {//gestion de exepciones no contempladas
+            Console.WriteLine($"Error no contemplado: {e.Message}");
         }
     }
 }
