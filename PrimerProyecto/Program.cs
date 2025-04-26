@@ -5,6 +5,7 @@ public class Program
     {
         //falta implementar el bucle para que no finalize.
         Aeropuerto aeropuerto = new Aeropuerto(3, 3);
+
         Console.WriteLine("Choose an option:");
         Console.WriteLine();
         Console.WriteLine("_________________________________________________________________");
