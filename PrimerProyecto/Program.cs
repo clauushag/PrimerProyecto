@@ -39,12 +39,22 @@ public class Program
                     break;
 
                 case 3:
-
+                    while (aeropuerto.AvionesVolando())
+                    {
+                        aeropuerto.AvanzarTick();
+                        aeropuerto.MostrarEstado();
+                        Console.WriteLine("Enter para continuar");
+                        Console.ReadKey();
+                    }
                     break;
 
                 case 4:
-                    Console.WriteLine("Lo sentimos, estamos trabajando en ello :( (es broma, no lo tenemos)");
-                    Console.WriteLine();
+                    while (aeropuerto.AvionesVolando())
+                    {
+                        aeropuerto.AvanzarTick();
+                        aeropuerto.MostrarEstado();
+                        System.Threading.Thread.Sleep(2500); //Pausa la ejecución por 2500 milisegundos.
+                    }
                     break;
 
                 case 5:
