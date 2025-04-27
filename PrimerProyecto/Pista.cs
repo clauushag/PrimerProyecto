@@ -38,7 +38,7 @@ public class Pista
         contador = DISPONIBILIDADTICKS;
     }
     //SOLICITARATERRIZAJE: comprueba que la pista esté libre, si lo está asigna el avión y lo aterriza. Si no está libre, WARNING.
-    public void SolicitarAterrizaje(Avion avion) //asigna un avión para aterrizar en esta pista. 
+    public bool SolicitarAterrizaje(Avion avion) //asigna un avión para aterrizar en esta pista. 
     {
         if (estadoActual == Estado.Libre)
         {
@@ -46,9 +46,17 @@ public class Pista
             estadoActual = Estado.Ocupada; //está ocupada por el avión que entra, no por el que se va.
             Aterrizar();
             Console.WriteLine($"El avion {avion} ha aterrizado en la pista {ID}.");
+            contador = 3;
+            avionActual.SetEstadoAvion(Avion.Estado.Aterrizando);
+            return true;
         }
 
-        else Console.WriteLine($"La pista {ID} está ocupada. El avion {avion} no puede aterrizar.");
+        else
+        {
+            Console.WriteLine($"La pista {ID} está ocupada. El avion {avion} no puede aterrizar.");
+            return false;
+        }
+
     }
     private void LiberarPista() //libera la pista una vez que el avión ha aterrizado y la ha despejado.
     {

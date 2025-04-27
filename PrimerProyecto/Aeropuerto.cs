@@ -23,8 +23,23 @@ public class Aeropuerto
         foreach (Avion a in listaAviones) //avanzo simulación para aviones con el método de encapsulación.
         {
             a.SimularAvion();
-        }
+            if (a.GetEstadoAvion() == Avion.Estado.EnEspera)
+            {
 
+                for (int i = 0; i < arrayPistas.GetLength(0); i++) //recorro las filas.
+                {
+                    for (int j = 0; j < arrayPistas.GetLength(1); j++) //recorro las columnas.
+                    {
+                        if (arrayPistas[i, j].SolicitarAterrizaje(a))
+                        {
+                            i = arrayPistas.GetLength(0);
+                            j = arrayPistas.GetLength(1);
+                        }
+                    }
+                }
+            }
+
+        }
         for (int i = 0; i < arrayPistas.GetLength(0); i++) //recorro las filas.
         {
             for (int j = 0; j < arrayPistas.GetLength(1); j++) //recorro las columnas.
@@ -160,5 +175,17 @@ public class Aeropuerto
         {//gestion de exepciones no contempladas
             Console.WriteLine($"Error no contemplado: {e.Message}");
         }
+    }
+
+    public bool AvionesVolando()   //Si un avión no está en tierra, devuelve true. En caso contrario están todos en tierra (devuelve false).
+    {
+        foreach (Avion a in listaAviones)
+        {
+            if (a.GetEstadoAvion() != Avion.Estado.EnTierra)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
