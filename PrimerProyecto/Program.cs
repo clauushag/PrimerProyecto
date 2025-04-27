@@ -9,15 +9,18 @@ public class Program
 
             Aeropuerto aeropuerto = new Aeropuerto(3, 3);
 
-            Console.WriteLine("Choose an option:");
-            Console.WriteLine();
-            Console.WriteLine("_________________________________________________________________");
-            Console.WriteLine("1. Load flights from file");
-            Console.WriteLine("2. Load flight manually");
-            Console.WriteLine("3. start a simulation (Manual)");
-            Console.WriteLine("4. start a simulation (Automatic)");
-            Console.WriteLine("5. Exit");
-            Console.WriteLine("_________________________________________________________________");
+            Console.WriteLine("=================================================");
+            Console.WriteLine("||                   AIR UFV                    ||");
+            Console.WriteLine("=================================================");
+            Console.WriteLine("||                                              ||");
+            Console.WriteLine("||      Choose an option                        ||");
+            Console.WriteLine("||      1. Load flights from file               ||");
+            Console.WriteLine("||      2. Load flight manually                 ||");
+            Console.WriteLine("||      3. Start a simulation (Manual)          ||");
+            Console.WriteLine("||      4. Start a simulation (Automatic)       ||");
+            Console.WriteLine("||      5. Exit                                 ||");
+            Console.WriteLine("||                                              ||");
+            Console.WriteLine("=================================================");
             Console.WriteLine();
             Console.Write("Choose your option:");
             int input = int.Parse(Console.ReadLine());
