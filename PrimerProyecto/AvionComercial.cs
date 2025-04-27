@@ -2,11 +2,11 @@
 public class AvionComercial : Avion
 {
     private int numPasajeros;
-    public int GetPasajerosMaximos()
+    public int GetNumPasajeros()
     {
         return numPasajeros;
     }
-    public void SetPasajerosMaximos(int numPasajeros)
+    public void SetNumPasajeros(int numPasajeros)
     {
         this.numPasajeros = numPasajeros;
     }

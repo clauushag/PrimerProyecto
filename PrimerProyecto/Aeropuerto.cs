@@ -101,7 +101,7 @@ public class Aeropuerto
             case "Aterrizando": return Avion.Estado.Aterrizando;
             case "EnTierra": return Avion.Estado.EnTierra;
             default:
-                return Avion.Estado.EnTierra; //Por defecto que el avión esté en tierra, así está más seguro.
+                return Avion.Estado.EnVuelo; //Por defecto que el avión esté en vuelo.
         }
     }
 
